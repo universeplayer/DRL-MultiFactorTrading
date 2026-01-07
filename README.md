@@ -68,7 +68,7 @@ This repository contains two sophisticated algorithmic trading strategies design
 ┌─────────────────────────────────────────────────────────────┐
 │                 DOUBLE DQN NETWORK                          │
 │                                                             │
-│    Input(24) → Dense(128) → Dense(64) → Dense(32) → (9)    │
+│    Input(24) → Dense(128) → Dense(64) → Dense(32) → (9)     │
 │                    ↓           ↓           ↓                │
 │                  tanh        tanh        tanh               │
 │                                                             │
