@@ -6,33 +6,10 @@
 
 > **Deep Reinforcement Learning trading strategies combining Double DQN with Transformer Attention and Multi-Factor Models inspired by Fama-French. Features adaptive risk management and volatility targeting.**
 
-## 🎯 Performance Highlights
-
-### Backtest Results (2020-2024, 4+ Years)
-
-| Metric | Conservative Strategy | Radical Strategy |
-|--------|----------------------|------------------|
-| **Total Return** | **68.3%** (13.6% annualized) | **127.4%** (22.8% annualized) |
-| **Sharpe Ratio** | **1.42** | **1.18** |
-| **Max Drawdown** | **-12.8%** | **-19.3%** |
-| **Win Rate** | **56.2%** | **51.7%** |
-| **Profit Factor** | **1.87** | **2.31** |
-| **Monthly Positive Rate** | **64%** | **59%** |
-| **Backtest Iterations** | **600+** | **400+** |
-
-### Key Achievements
-
-- ✅ **Conservative Strategy**: Steady 13.6% annualized returns with controlled 12.8% max drawdown
-- ✅ **Radical Strategy**: Exceptional 22.8% annualized returns, demonstrating DRL's learning capability
-- ✅ **Learning Curve**: Radical strategy win rate improved from 47.2% (first 500 trades) to 54.8% (last 500 trades)
-- ✅ **Robust Testing**: 1000+ backtest iterations across multiple assets and market regimes
-
 ## 📊 Performance Visualizations
 
 ### Xiaomi Corporation (01810.HK) - DRL Learning in Action
 ![Radical Strategy - Xiaomi](radical-01810HK.png)
-*Performance: +156.3% total return, Sharpe 1.15, Max Drawdown -21.8%*  
-**Note the visible learning curve as the network improves over time**
 
 ### Tencent Holdings (00700.HK) - High Returns, Higher Volatility
 ![Radical Strategy - Tencent](radical-00700HK.png)
