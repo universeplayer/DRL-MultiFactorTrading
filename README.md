@@ -128,37 +128,6 @@ This repository contains two sophisticated algorithmic trading strategies design
 - **ε-greedy Exploration**: Starts at 25%, decays to 5% minimum
 - **Dynamic Trailing Stop**: 1.8x ATR with profit lock-in at 70%
 
-## 📈 Detailed Performance Analysis
-
-### Radical Strategy Performance by Asset
-
-| Asset | Total Return | Sharpe Ratio | Max Drawdown | Win Rate |
-|-------|--------------|--------------|--------------|----------|
-| **Xiaomi (01810.HK)** | +156.3% | 1.15 | -21.8% | 50.8% |
-| **Tencent (00700.HK)** | +118.6% | 1.24 | -17.2% | 52.3% |
-| **Meituan (03690.HK)** | +134.2% | 1.21 | -18.5% | 51.6% |
-
-### Year-by-Year Performance (Radical Strategy)
-
-- **2020**: +24.7% (high volatility favored DRL)
-- **2021**: +31.2% (strong trending markets)
-- **2022**: -12.3% (challenging bear market)
-- **2023**: +42.8% (exceptional recovery performance)
-- **2024 YTD**: +19.6% (continued learning)
-
-### Learning Curve Evidence
-
-The Deep Reinforcement Learning strategy demonstrates clear learning improvement:
-
-| Metric | First 500 Trades | Last 500 Trades | Improvement |
-|--------|------------------|-----------------|-------------|
-| **Win Rate** | 47.2% | 54.8% | +7.6% |
-| **Profit Factor** | 1.68 | 2.73 | +62.5% |
-| **Average Win** | +2.1% | +3.4% | +61.9% |
-| **Average Loss** | -1.8% | -1.6% | +11.1% |
-
-This demonstrates the network's ability to learn from experience and improve decision-making over time.
-
 ## 📁 Project Structure
 
 ```
