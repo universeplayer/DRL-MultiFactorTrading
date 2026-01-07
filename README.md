@@ -7,17 +7,16 @@
 > **Deep Reinforcement Learning trading strategies combining Double DQN with Transformer Attention and Multi-Factor Models inspired by Fama-French. Features adaptive risk management and volatility targeting.**
 
 ## 📊 Performance Visualizations
+*Excellent adaptability on growth stocks with strong momentum characteristics*
 
 ### Xiaomi Corporation (01810.HK) - DRL Learning in Action
 ![Radical Strategy - Xiaomi](radical-01810HK.png)
 
 ### Tencent Holdings (00700.HK) - High Returns, Higher Volatility
 ![Radical Strategy - Tencent](radical-00700HK.png)
-*Performance: +118.6% total return, Sharpe 1.24, Max Drawdown -17.2%*
 
 ### Meituan (03690.HK) - Growth Stock Performance
 ![Radical Strategy - Meituan](strategy2-03690HK.png)
-*Excellent adaptability on growth stocks with strong momentum characteristics*
 
 ## 📋 Overview
 
