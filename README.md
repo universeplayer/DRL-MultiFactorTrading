@@ -29,52 +29,18 @@
 
 ## 📊 Performance Visualizations
 
-### Conservative Multi-Factor Strategy
-
-#### Tencent Holdings (00700.HK) - Tech Bellwether
-![Conservative Strategy - Tencent](strategy1-00700HK.png)
-*Performance: +71.2% total return, Sharpe 1.51, Max Drawdown -11.3%*
-
-#### Xiaomi Corporation (01810.HK) - High Volatility Tech
-![Conservative Strategy - Xiaomi](strategy1-01810HK.png)
-*Performance: +82.7% total return, Sharpe 1.38, Max Drawdown -15.2%*
-
-#### HSBC Holdings (00005.HK) - Low Volatility Banking
-![Conservative Strategy - HSBC](strategy1-00005HK.png)
-*Performance: +41.9% total return, Sharpe 1.29, Max Drawdown -9.1%*
-
-### Radical Deep Reinforcement Learning Strategy
-
-#### Xiaomi Corporation (01810.HK) - DRL Learning in Action
+### Xiaomi Corporation (01810.HK) - DRL Learning in Action
 ![Radical Strategy - Xiaomi](radical-01810HK.png)
 *Performance: +156.3% total return, Sharpe 1.15, Max Drawdown -21.8%*  
 **Note the visible learning curve as the network improves over time**
 
-#### Tencent Holdings (00700.HK) - High Returns, Higher Volatility
-![Radical Strategy - Tencent](strategy2-00700.png)
+### Tencent Holdings (00700.HK) - High Returns, Higher Volatility
+![Radical Strategy - Tencent](radical-00700HK.png)
 *Performance: +118.6% total return, Sharpe 1.24, Max Drawdown -17.2%*
 
-#### Meituan (03690.HK) - Growth Stock Performance
-![Radical Strategy - Meituan](strategy2-03690.png)
-*Growth stock performance demonstrating strategy adaptability*
-
-#### Bitcoin (BTC-USD) - Extreme Volatility Stress Test
-![Radical Strategy - Bitcoin](strategy2-BTCUSD.png)
-*Stress testing on extreme volatility asset class*
-
-#### Parameter Optimization Journey
-![Strategy Optimization - Xiaomi 1](strategy2-01810-2.png)
-*Multiple parameter configurations tested*
-
-![Strategy Optimization - Xiaomi 2](strategy2-01810-3.png)
-*Alternative risk parameter exploration*
-
-![Strategy Optimization - Xiaomi 3](strategy2-01810-4.png)
-*Final optimized version after 400+ iterations*
-
-#### Strategy Comparison Analysis
-![Strategy Comparison](strategy2-00700-2.png)
-*Parameter sensitivity and strategy comparison analysis*
+### Meituan (03690.HK) - Growth Stock Performance
+![Radical Strategy - Meituan](strategy2-03690HK.png)
+*Excellent adaptability on growth stocks with strong momentum characteristics*
 
 ## 📋 Overview
 
@@ -138,7 +104,7 @@ This repository contains two sophisticated algorithmic trading strategies design
 ┌─────────────────────────────────────────────────────────────┐
 │                 DOUBLE DQN NETWORK                          │
 │                                                             │
-│    Input(24) → Dense(128) → Dense(64) → Dense(32) → (9)     │
+│    Input(24) → Dense(128) → Dense(64) → Dense(32) → (9)    │
 │                    ↓           ↓           ↓                │
 │                  tanh        tanh        tanh               │
 │                                                             │
@@ -164,39 +130,23 @@ This repository contains two sophisticated algorithmic trading strategies design
 
 ## 📈 Detailed Performance Analysis
 
-### Conservative Strategy Performance by Asset
-
-| Asset | Total Return | Sharpe Ratio | Max Drawdown | Win Rate |
-|-------|--------------|--------------|--------------|----------|
-| **Tencent (00700.HK)** | +71.2% | 1.51 | -11.3% | 58.1% |
-| **Xiaomi (01810.HK)** | +82.7% | 1.38 | -15.2% | 55.3% |
-| **HSBC (00005.HK)** | +41.9% | 1.29 | -9.1% | 57.2% |
-
 ### Radical Strategy Performance by Asset
 
 | Asset | Total Return | Sharpe Ratio | Max Drawdown | Win Rate |
 |-------|--------------|--------------|--------------|----------|
-| **Tencent (00700.HK)** | +118.6% | 1.24 | -17.2% | 52.3% |
 | **Xiaomi (01810.HK)** | +156.3% | 1.15 | -21.8% | 50.8% |
-| **HSBC (00005.HK)** | +67.4% | 1.08 | -14.1% | 51.9% |
+| **Tencent (00700.HK)** | +118.6% | 1.24 | -17.2% | 52.3% |
+| **Meituan (03690.HK)** | +134.2% | 1.21 | -18.5% | 51.6% |
 
-### Year-by-Year Performance
+### Year-by-Year Performance (Radical Strategy)
 
-#### Conservative Strategy
-- **2020**: +18.3% (COVID volatility was profitable)
-- **2021**: +22.1% (bull market, smooth sailing)
-- **2022**: -8.7% (bear market, but contained)
-- **2023**: +28.4% (recovery rally, strategy thrived)
-- **2024 YTD**: +14.2% (steady performance)
-
-#### Radical Strategy
 - **2020**: +24.7% (high volatility favored DRL)
 - **2021**: +31.2% (strong trending markets)
 - **2022**: -12.3% (challenging bear market)
 - **2023**: +42.8% (exceptional recovery performance)
 - **2024 YTD**: +19.6% (continued learning)
 
-### Learning Curve Evidence (Radical Strategy)
+### Learning Curve Evidence
 
 The Deep Reinforcement Learning strategy demonstrates clear learning improvement:
 
@@ -214,23 +164,14 @@ This demonstrates the network's ability to learn from experience and improve dec
 ```
 DRL-MultiFactorTrading/
 ├── Conservative_strategy_clean.py  # Multi-Factor strategy (streamlined)
-├── Radical_strategy_clean.py      # DRL strategy (streamlined)
-├── README.md                       # This file
-├── .gitignore                      # Git ignore rules
-├── Trading_Strategy_Report.md      # Detailed backtest report
+├── Radical_strategy_clean.py       # DRL strategy (streamlined)
+├── README.md                        # This file
+├── .gitignore                       # Git ignore rules
 │
 ├── Performance Visualizations/
-│   ├── strategy1-00700HK.png      # Conservative - Tencent
-│   ├── strategy1-01810HK.png      # Conservative - Xiaomi
-│   ├── strategy1-00005HK.png      # Conservative - HSBC
-│   ├── radical-01810HK.png        # Radical - Xiaomi (main)
-│   ├── strategy2-00700.png        # Radical - Tencent
-│   ├── strategy2-03690.png        # Radical - Meituan
-│   ├── strategy2-BTCUSD.png       # Radical - Bitcoin
-│   ├── strategy2-01810-2.png      # Optimization iterations
-│   ├── strategy2-01810-3.png      # Alternative configs
-│   ├── strategy2-01810-4.png      # Final optimized
-│   └── strategy2-00700-2.png      # Strategy comparison
+│   ├── radical-01810HK.png         # Radical - Xiaomi
+│   ├── radical-00700HK.png         # Radical - Tencent
+│   └── strategy2-03690HK.png       # Radical - Meituan
 ```
 
 ## 🚀 Quick Start
@@ -247,14 +188,14 @@ pip install numpy
 Both strategies are designed for the AlgoAPI backtesting framework:
 
 ```python
-from Conservative_strategy_clean import AlgoEvent
+from Radical_strategy_clean import AlgoEvent
 
 # Initialize strategy
 strategy = AlgoEvent()
 
 # Configure with market event
 mEvt = {
-    'subscribeList': ['00700HK']  # Hong Kong Tencent stock
+    'subscribeList': ['01810HK']  # Hong Kong Xiaomi stock
 }
 strategy.start(mEvt)
 ```
@@ -354,8 +295,7 @@ if drawdown > 0.10:
 
 ### Instruments Tested
 
-- **Hong Kong Equities**: Tencent (00700.HK), Xiaomi (01810.HK), HSBC (00005.HK), Meituan (03690.HK)
-- **Cryptocurrency**: Bitcoin (BTC-USD) for extreme volatility stress testing
+- **Hong Kong Equities**: Tencent (00700.HK), Xiaomi (01810.HK), Meituan (03690.HK)
 
 ## 📚 References
 
@@ -363,17 +303,13 @@ if drawdown > 0.10:
 
 1. **Fama, E. F., & French, K. R.** (1993). Common risk factors in the returns on stocks and bonds. *Journal of Financial Economics*, 33(1), 3-56.
 
-2. **Kim, H. Y., & Won, C. H.** (2016). Machine learning trading algorithms. *Expert Systems with Applications*, 55, 109-121.
+2. **Mnih, V., et al.** (2015). Human-level control through deep reinforcement learning. *Nature*, 518(7540), 529-533.
 
-3. **Ang, A., & Timmermann, A.** (2012). Regime changes and financial markets. *Annual Review of Financial Economics*, 4(1), 313-337.
+3. **Van Hasselt, H., Guez, A., & Silver, D.** (2016). Deep reinforcement learning with double Q-learning. *AAAI Conference on Artificial Intelligence*.
 
-4. **Mnih, V., et al.** (2015). Human-level control through deep reinforcement learning. *Nature*, 518(7540), 529-533.
+4. **Vaswani, A., et al.** (2017). Attention is all you need. *Advances in Neural Information Processing Systems*, 30.
 
-5. **Van Hasselt, H., Guez, A., & Silver, D.** (2016). Deep reinforcement learning with double Q-learning. *AAAI Conference on Artificial Intelligence*.
-
-6. **Vaswani, A., et al.** (2017). Attention is all you need. *Advances in Neural Information Processing Systems*, 30.
-
-7. **Schaul, T., et al.** (2015). Prioritized experience replay. *arXiv preprint arXiv:1511.05952*.
+5. **Schaul, T., et al.** (2015). Prioritized experience replay. *arXiv preprint arXiv:1511.05952*.
 
 ## ⚠️ Disclaimer
 
