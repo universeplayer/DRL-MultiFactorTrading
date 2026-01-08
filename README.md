@@ -16,7 +16,7 @@
 ![Radical Strategy - Tencent](radical-00700HK.png)
 
 ### Meituan (03690.HK) - Growth Stock Performance
-![Radical Strategy - Meituan](strategy2-03690HK.png)
+![Radical Strategy - Meituan](radical-03690HK.png)
 
 ## 📋 Overview
 
