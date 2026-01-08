@@ -116,7 +116,7 @@ DRL-MultiFactorTrading/
 ├── Performance Visualizations/
 │   ├── radical-01810HK.png         # Radical - Xiaomi
 │   ├── radical-00700HK.png         # Radical - Tencent
-│   └── strategy2-03690HK.png       # Radical - Meituan
+│   └── radical-03690HK.png         # Radical - Meituan
 ```
 
 ## 🚀 Quick Start
