@@ -1,8 +1,9 @@
 # DRL-MultiFactorTrading
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
-[![NumPy](https://img.shields.io/badge/NumPy-1.20+-green.svg)](https://numpy.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![CI](https://github.com/universeplayer/DRL-MultiFactorTrading/actions/workflows/ci.yml/badge.svg)](https://github.com/universeplayer/DRL-MultiFactorTrading/actions/workflows/ci.yml)
+[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
+[![NumPy](https://img.shields.io/badge/NumPy-1.21+-green.svg)](https://numpy.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 > **Deep Reinforcement Learning trading strategies combining Double DQN with Transformer Attention and Multi-Factor Models inspired by Fama-French. Features adaptive risk management and volatility targeting.**
 
@@ -110,13 +111,18 @@ This repository contains two sophisticated algorithmic trading strategies design
 DRL-MultiFactorTrading/
 ├── Conservative_strategy_clean.py  # Multi-Factor strategy (streamlined)
 ├── Radical_strategy_clean.py       # DRL strategy (streamlined)
+├── requirements.txt                 # Python dependencies
+├── LICENSE                          # MIT License
 ├── README.md                        # This file
 ├── .gitignore                       # Git ignore rules
+├── .flake8                          # Linting configuration
+├── .github/
+│   └── workflows/
+│       └── ci.yml                   # CI pipeline (Python 3.9-3.12)
 │
-├── Performance Visualizations/
-│   ├── radical-01810HK.png         # Radical - Xiaomi
-│   ├── radical-00700HK.png         # Radical - Tencent
-│   └── radical-03690HK.png         # Radical - Meituan
+├── radical-01810HK.png             # Performance: Xiaomi (01810.HK)
+├── radical-00700HK.png             # Performance: Tencent (00700.HK)
+└── radical-03690HK.png             # Performance: Meituan (03690.HK)
 ```
 
 ## 🚀 Quick Start
@@ -124,8 +130,8 @@ DRL-MultiFactorTrading/
 ### Prerequisites
 
 ```bash
-# Required packages
-pip install numpy
+# Install dependencies
+pip install -r requirements.txt
 ```
 
 ### Usage
