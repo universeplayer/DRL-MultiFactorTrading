@@ -281,6 +281,7 @@ class AlgoEvent:
     # ==================== Risk Management ====================
     
     def calc_atr(self, period: int = 14) -> float:
+        """Calculate Average True Range as a percentage of current price."""
         if len(self.highs) < period + 1:
             return 0.025
         trs = []
@@ -323,6 +324,7 @@ class AlgoEvent:
     # ==================== Trading Logic ====================
     
     def on_marketdatafeed(self, md, ab):
+        """Process incoming market data, manage positions, and train the DQN agent."""
         price = md.lastPrice
         high = getattr(md, 'high', price)
         low = getattr(md, 'low', price)
@@ -429,6 +431,7 @@ class AlgoEvent:
                 self.last_trade_time = self.bar_count
     
     def open_position(self, direction: int, size: int, atr: float) -> None:
+        """Open a new position with ATR-based trailing stop initialization."""
         if size == 0:
             return
         direction = 1 if direction > 0 else -1
@@ -453,6 +456,7 @@ class AlgoEvent:
             pass
     
     def close_position(self) -> None:
+        """Close the current position and reset tracking state."""
         if self.position == 0:
             return
         order = AlgoAPIUtil.OrderObject()

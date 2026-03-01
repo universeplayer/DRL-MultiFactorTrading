@@ -197,6 +197,7 @@ class AlgoEvent:
     # ==================== Trading Logic ====================
     
     def on_marketdatafeed(self, md, ab):
+        """Process incoming market data and execute multi-factor trading logic."""
         price = md.lastPrice
         high = getattr(md, 'high', price)
         low = getattr(md, 'low', price)
