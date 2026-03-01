@@ -8,7 +8,6 @@ References: Fama & French (1993), Kim et al. (2016), Ang & Timmermann (2012)
 
 from AlgoAPI import AlgoAPIUtil, AlgoAPI_Backtest
 import numpy as np
-from datetime import datetime, timezone
 
 class AlgoEvent:
     """Conservative Trading Strategy with Multi-Factor Model"""
@@ -54,7 +53,7 @@ class AlgoEvent:
     
     # ==================== Technical Indicators ====================
     
-    def calc_atr(self, period=14):
+    def calc_atr(self, period: int = 14) -> float:
         """Calculate Average True Range"""
         if len(self.highs) < period + 1:
             return 0.02
@@ -68,7 +67,7 @@ class AlgoEvent:
             trs.append(tr)
         return np.mean(trs)
     
-    def calc_rsi(self, period=14):
+    def calc_rsi(self, period: int = 14) -> float:
         """Calculate Relative Strength Index"""
         if len(self.returns) < period:
             return 50.0
@@ -79,7 +78,7 @@ class AlgoEvent:
         rs = avg_gain / (avg_loss + 1e-8)
         return 100 - (100 / (1 + rs))
     
-    def calc_macd(self, fast=12, slow=26, signal=9):
+    def calc_macd(self, fast: int = 12, slow: int = 26, signal: int = 9) -> tuple:
         """Calculate MACD"""
         if len(self.prices) < slow:
             return 0.0, 0.0, 0.0
@@ -90,7 +89,7 @@ class AlgoEvent:
         signal_line = macd_line * 0.8
         return macd_line, signal_line, macd_line - signal_line
     
-    def calc_bollinger_bands(self, period=20, std_dev=2):
+    def calc_bollinger_bands(self, period: int = 20, std_dev: int = 2) -> tuple:
         """Calculate Bollinger Bands"""
         if len(self.prices) < period:
             return self.prices[-1], self.prices[-1], self.prices[-1]
@@ -101,7 +100,7 @@ class AlgoEvent:
     
     # ==================== Signal Generation ====================
     
-    def generate_signal(self):
+    def generate_signal(self) -> tuple:
         """
         Multi-Factor Signal Generation
         Weights: Trend(35%) + Momentum(25%) + RSI(20%) + MACD(15%) + BB(5%)
@@ -170,7 +169,7 @@ class AlgoEvent:
     
     # ==================== Position Sizing ====================
     
-    def calc_position_size(self, price, available, signal_strength):
+    def calc_position_size(self, price: float, available: float, signal_strength: float) -> int:
         """Volatility-Adjusted Position Sizing"""
         target_pct = self.base_position_pct * (0.85 + signal_strength * 0.5)
         
@@ -208,7 +207,7 @@ class AlgoEvent:
             available = float(getattr(ab, 'availableBalance', self.initial_capital * 0.9))
             if available <= 0:
                 available = self.initial_capital * 0.9
-        except:
+        except (AttributeError, TypeError, ValueError):
             available = self.initial_capital * 0.9
         available *= 0.90
         
@@ -294,7 +293,7 @@ class AlgoEvent:
                 self.open_position(signal_dir, size)
                 self.last_trade_time = self.bar_count
     
-    def open_position(self, direction, size):
+    def open_position(self, direction: int, size: int) -> None:
         order = AlgoAPIUtil.OrderObject()
         order.instrument = self.instrument
         order.orderRef = f"C_{self.bar_count}"
@@ -309,10 +308,10 @@ class AlgoEvent:
             self.entry_price = self.prices[-1]
             self.entry_bar = self.bar_count
             self.max_profit_pct = 0
-        except:
+        except (AttributeError, TypeError, ValueError):
             pass
     
-    def close_position(self):
+    def close_position(self) -> None:
         if self.position == 0:
             return
         order = AlgoAPIUtil.OrderObject()
@@ -328,7 +327,7 @@ class AlgoEvent:
             self.position = 0
             self.entry_price = 0
             self.max_profit_pct = 0
-        except:
+        except (AttributeError, TypeError, ValueError):
             pass
     
     def on_bulkdatafeed(self, isSync, bd, ab): pass

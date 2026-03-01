@@ -79,7 +79,7 @@ class AlgoEvent:
     
     # ==================== Neural Network ====================
     
-    def _init_network(self):
+    def _init_network(self) -> dict:
         """Initialize 4-layer Deep Q-Network"""
         return {
             'w1': np.random.randn(self.state_dim, 128) * 0.01,
@@ -88,14 +88,14 @@ class AlgoEvent:
             'w4': np.random.randn(32, self.action_dim) * 0.01
         }
     
-    def _forward(self, state, network):
+    def _forward(self, state: np.ndarray, network: dict) -> np.ndarray:
         """Forward pass through network"""
         h1 = np.tanh(np.dot(state, network['w1']))
         h2 = np.tanh(np.dot(h1, network['w2']))
         h3 = np.tanh(np.dot(h2, network['w3']))
         return np.dot(h3, network['w4'])
     
-    def _apply_attention(self, features):
+    def _apply_attention(self, features: np.ndarray) -> np.ndarray:
         """Transformer Self-Attention Mechanism"""
         Q = np.dot(features, self.attention_q)
         K = np.dot(features, self.attention_k)
@@ -110,7 +110,7 @@ class AlgoEvent:
     
     # ==================== Feature Extraction ====================
     
-    def extract_features(self):
+    def extract_features(self) -> np.ndarray:
         """Extract 24-dimensional state vector with attention enhancement"""
         if len(self.prices) < 60:
             return np.zeros(self.state_dim)
@@ -199,7 +199,7 @@ class AlgoEvent:
     
     # ==================== DQN Core ====================
     
-    def select_action(self, state, training=True):
+    def select_action(self, state: np.ndarray, training: bool = True) -> int:
         """ε-greedy Action Selection"""
         if training and random.random() < self.epsilon:
             weights = [0.10, 0.10, 0.08, 0.07, 0.30, 0.07, 0.08, 0.10, 0.10]
@@ -207,7 +207,7 @@ class AlgoEvent:
         q_values = self._forward(state, self.q_network).flatten()
         return np.argmax(q_values) if len(q_values) == self.action_dim else 4
     
-    def action_to_signal(self, action):
+    def action_to_signal(self, action: int) -> tuple:
         """Map action to trading signal and strength"""
         mapping = {
             0: (-4, 0.55), 1: (-3, 0.45), 2: (-2, 0.35), 3: (-1, 0.25),
@@ -215,7 +215,7 @@ class AlgoEvent:
         }
         return mapping.get(action, (0, 0.0))
     
-    def compute_reward(self, price, prev_price, action, position):
+    def compute_reward(self, price: float, prev_price: float, action: int, position: int) -> float:
         """Compute reward signal"""
         if action == 4:
             return 0
@@ -234,7 +234,7 @@ class AlgoEvent:
         
         return reward
     
-    def train_network(self):
+    def train_network(self) -> None:
         """Train with Double DQN + Prioritized Experience Replay"""
         if len(self.replay_buffer) < self.batch_size:
             return
@@ -280,7 +280,7 @@ class AlgoEvent:
     
     # ==================== Risk Management ====================
     
-    def calc_atr(self, period=14):
+    def calc_atr(self, period: int = 14) -> float:
         if len(self.highs) < period + 1:
             return 0.025
         trs = []
@@ -293,7 +293,7 @@ class AlgoEvent:
             trs.append(tr)
         return np.mean(trs) / (self.prices[-1] + 1e-8)
     
-    def calc_position_size(self, price, available, signal_strength):
+    def calc_position_size(self, price: float, available: float, signal_strength: float) -> int:
         """Dynamic Position Sizing with Risk Control"""
         target_pct = self.base_position_pct * (0.9 + signal_strength * 0.8)
         
@@ -332,7 +332,7 @@ class AlgoEvent:
             available = float(getattr(ab, 'availableBalance', self.initial_capital * 0.9))
             if available <= 0:
                 available = self.initial_capital * 0.9
-        except:
+        except (AttributeError, TypeError, ValueError):
             available = self.initial_capital * 0.9
         available *= 0.90
         
@@ -428,7 +428,7 @@ class AlgoEvent:
                 self.last_state = state
                 self.last_trade_time = self.bar_count
     
-    def open_position(self, direction, size, atr):
+    def open_position(self, direction: int, size: int, atr: float) -> None:
         if size == 0:
             return
         direction = 1 if direction > 0 else -1
@@ -449,10 +449,10 @@ class AlgoEvent:
             self.max_profit = 0
             atr_adj = max(atr, 0.02)
             self.trailing_stop = self.prices[-1] * (1 - 1.8 * atr_adj if direction > 0 else 1 + 1.8 * atr_adj)
-        except:
+        except (AttributeError, TypeError, ValueError):
             pass
     
-    def close_position(self):
+    def close_position(self) -> None:
         if self.position == 0:
             return
         order = AlgoAPIUtil.OrderObject()
@@ -469,7 +469,7 @@ class AlgoEvent:
             self.entry_price = 0
             self.trailing_stop = 0
             self.max_profit = 0
-        except:
+        except (AttributeError, TypeError, ValueError):
             pass
     
     def on_bulkdatafeed(self, isSync, bd, ab): pass
