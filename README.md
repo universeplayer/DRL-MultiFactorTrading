@@ -1,3 +1,5 @@
+<div align="center">
+
 # DRL-MultiFactorTrading
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
@@ -5,6 +7,10 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 > **Deep Reinforcement Learning trading strategies combining Double DQN with Transformer Attention and Multi-Factor Models inspired by Fama-French. Features adaptive risk management and volatility targeting.**
+
+**[English](README.md) | [中文](README_CN.md)**
+
+</div>
 
 ## 📊 Performance Visualizations
 *Excellent adaptability on growth stocks with strong momentum characteristics*
